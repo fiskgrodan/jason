@@ -47,7 +47,7 @@ function createJSON({
   const update = (event: KeyboardEvent) => {
     if (get(textarea) === null) return;
 
-    if (event.metaKey && event.code === "KeyS") {
+    if ((event.metaKey || event.ctrlKey) && event.code === "KeyS") {
       event.preventDefault();
       format();
     }
