@@ -24,7 +24,7 @@ textarea {
 
 ::selection {
   color: var(--black);
-  background-color: var(--white);
+  background-color: var(--gray);
 }
 
 body {
