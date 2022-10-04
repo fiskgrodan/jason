@@ -1,43 +1,17 @@
 <script lang="ts">
-  import { tick } from "svelte";
-
-  let json = sessionStorage.getItem("json") || "";
-  let textarea: HTMLTextAreaElement | null = null;
-
-  $: {
-    sessionStorage.setItem("json", json);
-  }
-
-  const keydown = (event: KeyboardEvent) => {
-    if (event.metaKey && event.code === "KeyS") {
-      event.preventDefault();
-      const { selectionStart: start, selectionEnd: end } = textarea;
-      json = JSON.stringify(JSON.parse(json), null, 2);
-
-      tick().then(() => {
-        textarea.setSelectionRange(start, end);
-      });
-    }
-
-    if (event.key === "Tab") {
-      event.preventDefault();
-      const { selectionStart: start, selectionEnd: end } = textarea;
-      json = [json.slice(0, start), "  ", json.slice(end)].join("");
-
-      tick().then(() => {
-        textarea.setSelectionRange(start + 2, end + 2);
-      });
-    }
-  };
+  import { json, textarea, invalid } from "./state/json";
+  import FormatButton from "./components/FormatButton.svelte";
 </script>
 
 <main>
   <textarea
-    bind:this={textarea}
-    bind:value={json}
-    on:keydown={keydown}
+    bind:this={$textarea}
+    bind:value={$json}
+    on:keydown={json.update}
     spellcheck="false"
+    class:invalid={$invalid}
   />
+  <FormatButton invalid={$invalid} on:click={json.format} />
 </main>
 
 <style>
@@ -56,5 +30,10 @@
     overflow-y: scroll;
     overflow-x: hidden;
     white-space: pre-wrap;
+    transition: color ease-in 200ms 0ms;
+  }
+
+  textarea.invalid {
+    color: var(--red);
   }
 </style>
