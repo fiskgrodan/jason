@@ -15,25 +15,28 @@
 </main>
 
 <style>
-  main,
-  textarea {
-    width: 100vw;
-    height: 100vh;
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   textarea {
+    flex-grow: 1;
     box-sizing: border-box;
     padding: 20px;
     border-style: none;
     outline: none;
     resize: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
     white-space: pre-wrap;
     transition: color ease-in 200ms 0ms;
   }
 
   textarea.invalid {
     color: var(--red);
+  }
+
+  textarea.invalid::selection {
+    background-color: var(--red);
   }
 </style>
