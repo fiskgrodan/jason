@@ -47,11 +47,13 @@ function createJSON({
   const update = (event: KeyboardEvent) => {
     if (get(textarea) === null) return;
 
+    // Keyboard shortcuts to format
     if ((event.metaKey || event.ctrlKey) && event.code === "KeyS") {
       event.preventDefault();
       format();
     }
 
+    // Handle tabs
     if (event.key === "Tab") {
       event.preventDefault();
       addTab();
