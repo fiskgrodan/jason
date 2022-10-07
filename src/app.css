@@ -3,6 +3,8 @@
   --black: #161616;
   --gray: #969696;
   --red: #f0506e;
+
+  --easing: ease-in 128ms 0ms;
 }
 
 :root,

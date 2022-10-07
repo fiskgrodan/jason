@@ -16,7 +16,7 @@
     border-radius: 50%;
     user-select: none;
     cursor: pointer;
-    transition: background-color ease-in 256ms 0ms;
+    transition: background-color var(--easing);
   }
 
   button.invalid {
