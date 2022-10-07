@@ -1,8 +1,10 @@
 <script>
-  export let invalid = false;
+  import { json, invalid } from "../state/json";
 </script>
 
-<button class:invalid on:click><span>&#123;&nbsp;&#125;</span></button>
+<button class:invalid on:click={json.format}
+  ><span>&#123;&nbsp;&#125;</span></button
+>
 
 <style>
   button {
