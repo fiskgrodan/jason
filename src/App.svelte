@@ -1,11 +1,11 @@
 <script lang="ts">
   import Textarea from "./components/Textarea.svelte";
-  import FormatButton from "./components/FormatButton.svelte";
+  import Indicator from "./components/Indicator.svelte";
 </script>
 
 <main>
   <Textarea />
-  <FormatButton />
+  <Indicator />
 </main>
 
 <style>

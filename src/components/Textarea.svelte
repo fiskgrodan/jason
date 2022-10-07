@@ -42,7 +42,7 @@
     outline: none;
     resize: none;
     white-space: pre-wrap;
-    transition: color ease-in 200ms 0ms;
+    transition: color ease-in 256ms 0ms;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
