@@ -4,7 +4,7 @@
   --gray: #969696;
   --red: #f0506e;
 
-  --easing: ease-in 128ms 0ms;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1) 1280ms 0ms;
 }
 
 :root,
