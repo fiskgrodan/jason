@@ -26,6 +26,7 @@
 </script>
 
 <textarea
+  id="textarea"
   bind:this={textarea}
   bind:value={$json}
   on:keydown={keydown}
