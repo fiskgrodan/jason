@@ -6,8 +6,9 @@
   let middle = 100;
 
   const update = () => {
-    const { scrollHeight, offsetHeight, scrollTop } =
-      document.getElementById("textarea");
+    const textarea = document.getElementById("textarea");
+    if (!textarea) return;
+    const { scrollHeight, offsetHeight, scrollTop } = textarea;
 
     top = 100 * (scrollTop / scrollHeight);
     middle = 100 * (offsetHeight / scrollHeight);
