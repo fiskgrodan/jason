@@ -1,11 +1,12 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import { json } from "../state/json";
 
   let top = 0;
   let middle = 100;
 
-  const update = () => {
+  const update = async () => {
+    await tick();
     const textarea = document.getElementById("textarea");
     if (!textarea) return;
     const { scrollHeight, offsetHeight, scrollTop } = textarea;
@@ -27,7 +28,7 @@
   json.subscribe(() => update());
 </script>
 
-<svelte:window on:resize={update} />
+<svelte:window on:resize={update} on:keydown={update} on:keyup={update} />
 
 <div class="scrollbar">
   <div class="top" style:height={`${top}vh`} />
